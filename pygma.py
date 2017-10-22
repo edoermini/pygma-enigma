@@ -199,7 +199,6 @@ class m4:
 			count += 1 
 			if (count == 1):
 				self.rotor_1 = self.init[int(i)-1:] + self.init[:int(i)-1]
-				print self.rotor_1
 				
 				for i in self.rotor_1:
 					self.rotor_1_left.append(i.split(":")[0])
@@ -207,7 +206,6 @@ class m4:
 
 			elif (count == 2):
 				self.rotor_2 = self.init[int(i)-1:] + self.init[:int(i)-1]
-				print self.rotor_2
 				
 				for i in self.rotor_2:
 					self.rotor_2_left.append(i.split(":")[0])
@@ -215,7 +213,6 @@ class m4:
 
 			elif (count == 3):
 				self.rotor_3 = self.init[int(i)-1:] + self.init[:int(i)-1]
-				print self.rotor_3
 				
 				for i in self.rotor_3:
 					self.rotor_3_left.append(i.split(":")[0])
@@ -224,7 +221,6 @@ class m4:
 
 			elif (count == 4):
 				self.rotor_4 = self.init[int(i)-1:] + self.init[:int(i)-1]
-				print self.rotor_4
 				
 				for i in self.rotor_3:
 					self.rotor_4_left.append(i.split(":")[0])
@@ -232,7 +228,6 @@ class m4:
 
 			else:
 				self.reflector = self.init[int(i)-1:] + self.init[:int(i)-1]
-				print self.reflector
 				
 				for i in self.reflector:
 					self.reflector_left.append(i.split(":")[0])

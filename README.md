@@ -7,8 +7,8 @@ Encryption software that emulates the german enigma machine both the m3 version 
 • from pygma import m4 <br />
 ### Functions
 • set_key(key_of_encryption):<br />
-\tInitializes the starting position of the "rotors". Every number in key corespond with the position of letters in the alphabet.<br />
-\tExample: set_key(4321) initializes the start position of the rotors to DCBA.<br />
+Initializes the starting position of the "rotors". Every number in key corespond with the position of letters in the alphabet.<br />
+Example: set_key(4321) initializes the start position of the rotors to DCBA.<br />
 • dec_enc("words"):<br />
-\tEncrypt or decrypt given words
+Encrypt or decrypt given words
 

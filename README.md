@@ -1,5 +1,5 @@
 # pygma-enigma
-Encryption software that emulates the german enigma machine both the m3 version and m4
+Encryption software that emulates the german enigma machine both the m3 version and m4 without the use of the plugboard
 
 ## User guide
 • Two types of encryption: m3 with key long 4 numbers and m4 with key long 5 numbers. <br />

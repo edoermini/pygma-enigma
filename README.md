@@ -9,6 +9,6 @@ Encryption software that emulates the german enigma machine both the m3 version 
 • set_key(key_of_encryption):<br />
 Initializes the starting position of the "rotors" and reflector. Every number in key corespond with the position of letters in the alphabet.<br />
 Example: set_key(4321) initializes the start position of the rotors to DCB and the position of reflector to A.<br />
-• dec_enc("words"):<br />
+• enc_dec("words"):<br />
 Encrypt or decrypt given words
 

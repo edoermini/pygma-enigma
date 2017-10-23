@@ -23,16 +23,9 @@ class m3():
 	def set_key(self, key):
 
 		self.__init__()
-
-		key = str(key)
 		
 		if (len(key) > 4 or len(key) < 4):
-			raise ValueError("La chiave di cifratura deve essere composta da 4 numeri\n")
-
-		try:
-			int(key)
-		except ValueError:
-			raise ValueError("La chiave di cifratura deve essere composta da 4 numeri\n")
+			raise ValueError("La chiave di cifratura deve essere composta da 4 lettere\n")
 
 		self.indexKey = []
 		for i in key:
@@ -43,36 +36,50 @@ class m3():
 	def set_rotors(self, key):
 		count = 0
 
-		for i in key:
+		for k in key:
 			count += 1
 
 			if (count == 1):
-				self.rotor_1 = self.rotor_1[int(i)-1:] + self.rotor_1[:int(i)-1]
 
 				for i in self.rotor_1:
 					self.rotor_1_left.append(i.split(":")[0])
 					self.rotor_1_right.append(i.split(":")[1])
+				
+				index = self.rotor_1_left.index(k)
+				self.rotor_1_left = self.rotor_1_left[index:] + self.rotor_1_left[:index]
+				self.rotor_1_right = self.rotor_1_right[index:] + self.rotor_1_right[:index]
 
 			elif (count == 2):
-				self.rotor_2 = self.rotor_2[int(i)-1:] + self.rotor_2[:int(i)-1]
-
 				for i in self.rotor_2:
 					self.rotor_2_left.append(i.split(":")[0])
 					self.rotor_2_right.append(i.split(":")[1])
+				
+				index = self.rotor_2_left.index(k)
+				self.rotor_2_left = self.rotor_2_left[index:] + self.rotor_2_left[:index]
+				self.rotor_2_right = self.rotor_2_right[index:] + self.rotor_2_right[:index]
 
 			elif (count == 3):
-				self.rotor_3 = self.rotor_3[int(i)-1:] + self.rotor_3[:int(i)-1]
-				
 				for i in self.rotor_3:
 					self.rotor_3_left.append(i.split(":")[0])
 					self.rotor_3_right.append(i.split(":")[1])
+				
+				index = self.rotor_3_left.index(k)
+				self.rotor_3_left = self.rotor_3_left[index:] + self.rotor_3_left[:index]
+				self.rotor_3_right = self.rotor_3_right[index:] + self.rotor_3_right[:index]
 
 			else:
-				self.reflector = self.reflector[int(i)-1:] + self.reflector[:int(i)-1]
-				
 				for i in self.reflector:
+					print self.reflector
 					self.reflector_left.append(i.split(":")[0])
 					self.reflector_right.append(i.split(":")[1])
+				
+				index = self.reflector_left.index(k)
+				self.reflector_left = self.reflector_left[index:] + self.reflector_left[:index]
+				self.reflector_right = self.reflector_right[index:] + self.reflector_right[:index]
+
+		print self.reflector_left
+		print self.reflector_right
+
 
 	def enc_dec(self, word):
 		Word = ""

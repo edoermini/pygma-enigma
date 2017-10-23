@@ -86,6 +86,11 @@ class m3():
 
 		steck = words.replace(" ", "")
 		steck = steck.split(",")
+		
+		for i in steck:
+			for j in steck:
+				if i[0] == j[0] or i[1] == j[1]:
+					raise ValueError("Stessa lettera trovata multiple volte")
 
 		for i in steck:
 			self.stecker.update({i[0]:i[1], i[1]:i[0]})

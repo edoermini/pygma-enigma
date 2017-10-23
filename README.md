@@ -1,10 +1,9 @@
 # pygma-enigma
-Encryption software that emulates the german enigma machine both the m3 version and m4 without the use of the plugboard
+Encryption software that emulates the german enigma machine without the use of the plugboard
 
 ## User guide
-• Two types of encryption: m3 with key long 4 numbers and m4 with key long 5 numbers. <br />
-• from pygma import m3 <br />
-• from pygma import m4 <br />
+• Two types of encryption: m3 with key long 4 numbers. <br />
+Example: from pygma import m3 <br />
 ### Functions
 • set_key(key_of_encryption):<br />
 Initializes the starting position of the "rotors" and reflector. Every number in key corespond with the position of letters in the alphabet.<br />

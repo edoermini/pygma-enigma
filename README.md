@@ -2,7 +2,7 @@
 Encryption software that emulates the german enigma machine without the use of the plugboard
 
 ## User guide
-• Two types of encryption: m3 with key long 4 numbers. <br />
+• M3 encryption: with key long 4 numbers. <br />
 Example: from pygma import m3 <br />
 ### Functions
 • set_key(key_of_encryption):<br />

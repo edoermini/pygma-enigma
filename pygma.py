@@ -2,17 +2,18 @@
 
 class m3():
 	def __init__(self):
+		self.stecker = {}
 		self.alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "x", "z"]
 		
 		self.rotor_1 = ["a:x", "b:z", "c:u", "d:v", "e:s", "f:t", "g:q", "h:r", "i:o", "l:p", "m:l", "n:m", "o:n", "p:h", "q:i", "r:f", "s:g", "t:d", "u:e", "v:b", "x:c", "z:a"]
 		self.rotor_1_left = []
 		self.rotor_1_right = []
 		
-		self.rotor_2 = ["a:x", "b:z", "c:u", "d:v", "e:s", "f:t", "g:q", "h:r", "i:o", "l:p", "m:l", "n:m", "o:n", "p:h", "q:i", "r:f", "s:g", "t:d", "u:e", "v:b", "x:c", "z:a"]
+		self.rotor_2 = ["a:o", "b:t", "c:u", "d:l", "e:n", "f:z", "g:q", "h:r", "i:x", "l:p", "m:v", "n:a", "o:s", "p:g", "q:i", "r:c", "s:h", "t:d", "u:b", "v:e", "x:f", "z:m"]
 		self.rotor_2_left = []
 		self.rotor_2_right = []
 
-		self.rotor_3 = ["a:x", "b:z", "c:u", "d:v", "e:s", "f:t", "g:q", "h:r", "i:o", "l:p", "m:l", "n:m", "o:n", "p:h", "q:i", "r:f", "s:g", "t:d", "u:e", "v:b", "x:c", "z:a"]
+		self.rotor_3 = ["a:u", "b:v", "c:x", "d:z", "e:l", "f:r", "g:q", "h:t", "i:p", "l:o", "m:s", "n:m", "o:g", "p:f", "q:d", "r:h", "s:n", "t:i", "u:a", "v:c", "x:b", "z:e"]
 		self.rotor_3_left = []
 		self.rotor_3_right = []
 
@@ -78,6 +79,30 @@ class m3():
 			except ValueError:
 				raise ValueError("Lettera %s non presente nei rotori" % (k))
 
+	def set_stecker(self, words):
+
+		steck = words.replace(" ", "")
+		steck = steck.split(",")
+
+		for i in steck:
+			self.stecker.update({i[0]:i[1], i[1]:i[0]})
+
+		if len(steck) > 10:
+			raise ValueError("Impossibile fare più di 10 collegamenti")
+
+
+	def stecker_check(self, word):
+		changed = ""
+		
+		for i in word:
+			try:
+				ch = self.stecker[i]
+				changed += ch
+			except:
+				changed += i
+
+		return changed
+
 	def enc_dec(self, word):
 		Word = ""
 		rotor_1_count = 0
@@ -94,6 +119,8 @@ class m3():
 
 		for i in word:
 			rotor_1_count += 1
+
+			i = self.stecker_check(i)
 
 			try:
 				index = self.alphabet.index(i)
@@ -147,4 +174,5 @@ class m3():
 				rotor_2_count = 0
 				rotor_1_count = 0
 
+		Word = self.stecker_check(Word)		
 		return Word

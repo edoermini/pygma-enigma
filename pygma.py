@@ -38,48 +38,45 @@ class m3():
 
 		for k in key:
 			count += 1
+			try:
+				if (count == 1):
 
-			if (count == 1):
+					for i in self.rotor_1:
+						self.rotor_1_left.append(i.split(":")[0])
+						self.rotor_1_right.append(i.split(":")[1])
+					
+					index = self.rotor_1_left.index(k)
+					self.rotor_1_left = self.rotor_1_left[index:] + self.rotor_1_left[:index]
+					self.rotor_1_right = self.rotor_1_right[index:] + self.rotor_1_right[:index]
 
-				for i in self.rotor_1:
-					self.rotor_1_left.append(i.split(":")[0])
-					self.rotor_1_right.append(i.split(":")[1])
-				
-				index = self.rotor_1_left.index(k)
-				self.rotor_1_left = self.rotor_1_left[index:] + self.rotor_1_left[:index]
-				self.rotor_1_right = self.rotor_1_right[index:] + self.rotor_1_right[:index]
+				elif (count == 2):
+					for i in self.rotor_2:
+						self.rotor_2_left.append(i.split(":")[0])
+						self.rotor_2_right.append(i.split(":")[1])
+					
+					index = self.rotor_2_left.index(k)
+					self.rotor_2_left = self.rotor_2_left[index:] + self.rotor_2_left[:index]
+					self.rotor_2_right = self.rotor_2_right[index:] + self.rotor_2_right[:index]
 
-			elif (count == 2):
-				for i in self.rotor_2:
-					self.rotor_2_left.append(i.split(":")[0])
-					self.rotor_2_right.append(i.split(":")[1])
-				
-				index = self.rotor_2_left.index(k)
-				self.rotor_2_left = self.rotor_2_left[index:] + self.rotor_2_left[:index]
-				self.rotor_2_right = self.rotor_2_right[index:] + self.rotor_2_right[:index]
+				elif (count == 3):
+					for i in self.rotor_3:
+						self.rotor_3_left.append(i.split(":")[0])
+						self.rotor_3_right.append(i.split(":")[1])
+					
+					index = self.rotor_3_left.index(k)
+					self.rotor_3_left = self.rotor_3_left[index:] + self.rotor_3_left[:index]
+					self.rotor_3_right = self.rotor_3_right[index:] + self.rotor_3_right[:index]
 
-			elif (count == 3):
-				for i in self.rotor_3:
-					self.rotor_3_left.append(i.split(":")[0])
-					self.rotor_3_right.append(i.split(":")[1])
-				
-				index = self.rotor_3_left.index(k)
-				self.rotor_3_left = self.rotor_3_left[index:] + self.rotor_3_left[:index]
-				self.rotor_3_right = self.rotor_3_right[index:] + self.rotor_3_right[:index]
-
-			else:
-				for i in self.reflector:
-					print self.reflector
-					self.reflector_left.append(i.split(":")[0])
-					self.reflector_right.append(i.split(":")[1])
-				
-				index = self.reflector_left.index(k)
-				self.reflector_left = self.reflector_left[index:] + self.reflector_left[:index]
-				self.reflector_right = self.reflector_right[index:] + self.reflector_right[:index]
-
-		print self.reflector_left
-		print self.reflector_right
-
+				else:
+					for i in self.reflector:
+						self.reflector_left.append(i.split(":")[0])
+						self.reflector_right.append(i.split(":")[1])
+					
+					index = self.reflector_left.index(k)
+					self.reflector_left = self.reflector_left[index:] + self.reflector_left[:index]
+					self.reflector_right = self.reflector_right[index:] + self.reflector_right[:index]
+			except ValueError:
+				raise ValueError("Lettera %s non presente nei rotori" % (k))
 
 	def enc_dec(self, word):
 		Word = ""
@@ -130,7 +127,7 @@ class m3():
 			rotor_3_left_mv = rotor_3_left_mv[1:] + rotor_3_left_mv[:1]
 			rotor_3_right_mv = rotor_3_right_mv[1:] + rotor_3_right_mv[:1]
 
-			if rotor_1_count == 22:
+			if rotor_3_count == 22:
 				rotor_2_left_mv = rotor_2_left_mv[1:] + rotor_2_left_mv[:1]
 				rotor_2_right_mv = rotor_2_right_mv[1:] + rotor_2_right_mv[:1]
 				
@@ -145,7 +142,7 @@ class m3():
 				rotor_2_count = 0
 				rotor_3_count = 0
 
-			elif rotor_3_count == 22:
+			elif rotor_1_count == 22:
 				rotor_3_count = 0
 				rotor_2_count = 0
 				rotor_1_count = 0

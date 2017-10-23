@@ -80,6 +80,9 @@ class m3():
 				raise ValueError("Lettera %s non presente nei rotori" % (k))
 
 	def set_stecker(self, words):
+		if words == "":
+			self.stecker = {}
+			return None
 
 		steck = words.replace(" ", "")
 		steck = steck.split(",")

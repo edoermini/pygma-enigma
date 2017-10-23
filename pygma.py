@@ -80,17 +80,27 @@ class m3():
 				raise ValueError("Lettera %s non presente nei rotori" % (k))
 
 	def set_stecker(self, words):
+		count = 0
+		steckcheck = []
+
 		if words == "":
 			self.stecker = {}
 			return None
 
 		steck = words.replace(" ", "")
 		steck = steck.split(",")
-		
+		steckcheck = steck
+
 		for i in steck:
+			del steck[count]
+			
 			for j in steck:
-				if i[0] == j[0] or i[1] == j[1]:
+				if i[0] == j[0] or i[1] == j[1] or i[0] == j[1] or i[1] == j[0]:
 					raise ValueError("Stessa lettera trovata multiple volte")
+					return None
+
+			count += 1
+			steckcheck = steck
 
 		for i in steck:
 			self.stecker.update({i[0]:i[1], i[1]:i[0]})

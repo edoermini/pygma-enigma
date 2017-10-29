@@ -178,11 +178,11 @@ class m3():
 					Word += i.upper()
 				elif i == i.lower():
 					Word += i.lower()
+			
+			rotor_1_left_mv = rotor_1_left_mv[1:] + rotor_1_left_mv[:1]
+			rotor_1_right_mv = rotor_1_right_mv[1:] + rotor_1_right_mv[:1]
 
-			rotor_3_left_mv = rotor_3_left_mv[1:] + rotor_3_left_mv[:1]
-			rotor_3_right_mv = rotor_3_right_mv[1:] + rotor_3_right_mv[:1]
-
-			if rotor_3_count == 22:
+			if rotor_1_count == 22:
 				rotor_2_left_mv = rotor_2_left_mv[1:] + rotor_2_left_mv[:1]
 				rotor_2_right_mv = rotor_2_right_mv[1:] + rotor_2_right_mv[:1]
 				
@@ -190,14 +190,14 @@ class m3():
 				rotor_1_count = 0
 
 			elif rotor_2_count == 22:
-				rotor_1_left_mv = rotor_1_left_mv[1:] + rotor_1_left_mv[:1]
-				rotor_1_right_mv = rotor_1_right_mv[1:] + rotor_1_right_mv[:1]
+				rotor_3_left_mv = rotor_3_left_mv[1:] + rotor_3_left_mv[:1]
+				rotor_3_right_mv = rotor_3_right_mv[1:] + rotor_3_right_mv[:1]
 
-				rotor_1_count +=1
+				rotor_3_count +=1
 				rotor_2_count = 0
-				rotor_3_count = 0
+				rotor_1_count = 0
 
-			elif rotor_1_count == 22:
+			elif rotor_3_count == 22:
 				rotor_3_count = 0
 				rotor_2_count = 0
 				rotor_1_count = 0

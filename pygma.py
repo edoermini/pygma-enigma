@@ -138,10 +138,14 @@ class m3():
 		for i in word:
 			rotor_1_count += 1
 
-			i = self.stecker_check(i)
-
+			if i == i.upper():
+				i = self.stecker_check(i.lower())
+				i = i.upper()
+			elif i == i.lower():
+				i = self.stecker_check(i)
+				
 			try:
-				index = self.alphabet.index(i)
+				index = self.alphabet.index(i.lower())
 
 				word = rotor_1_left_mv[index]
 				index = rotor_1_right_mv.index(word)
@@ -164,10 +168,16 @@ class m3():
 				word = rotor_1_right_mv[index]
 				index = rotor_1_left_mv.index(word)
 
-				Word += self.alphabet[index]
+				if i == i.upper():
+					Word += self.alphabet[index].upper()
+				elif i == i.lower():
+					Word += self.alphabet[index].lower()
 			
 			except ValueError:
-				Word += i
+				if i == i.upper():
+					Word += i.upper()
+				elif i == i.lower():
+					Word += i.lower()
 
 			rotor_3_left_mv = rotor_3_left_mv[1:] + rotor_3_left_mv[:1]
 			rotor_3_right_mv = rotor_3_right_mv[1:] + rotor_3_right_mv[:1]

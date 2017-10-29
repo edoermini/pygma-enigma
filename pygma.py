@@ -96,7 +96,7 @@ class m3():
 			
 			for j in steck:
 				if i[0] == j[0] or i[1] == j[1] or i[0] == j[1] or i[1] == j[0]:
-					raise ValueError("Stessa lettera trovata multiple volte")
+					raise ValueError("Stesso elemento trovato multiple volte")
 					return None
 
 			count += 1

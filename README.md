@@ -4,9 +4,9 @@ Encryption software that emulates the german enigma machine without the use of t
 ## User guide
 • M3 encryption: with key long 4 letters. <br />
 Example: <br />
->>> from pygma import m3 <br />
->>> e = m3() <br />
->>> e.set_key("acvt") <br />
+>from pygma import m3 <br />
+> e = m3() <br />
+> e.set_key("acvt") <br />
 ### Functions
 • set_key(key_of_encryption):<br />
 Initializes the starting position of the "rotors" and reflector. <br />

@@ -92,7 +92,7 @@ class m3():
 		steckcheck = steck
 
 		for i in steck:
-			del steck[count]
+			del steckcheck[count]
 			
 			for j in steck:
 				if i[0] == j[0] or i[1] == j[1] or i[0] == j[1] or i[1] == j[0]:

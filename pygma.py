@@ -108,6 +108,10 @@ class m3():
 
 			count += 1
 
+			del steckcheck[:]
+			for i in steck:
+				steckcheck.append(i)
+
 		if len(steck) > 10:
 			raise ValueError("Impossibile fare più di 10 collegamenti")
 

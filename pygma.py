@@ -24,6 +24,8 @@ class m3():
 
 		self.__init__()
 		
+		key = key.lower()
+		
 		if (len(key) > 4 or len(key) < 4):
 			raise ValueError("La chiave di cifratura deve essere composta da 4 lettere\n")
 
@@ -82,6 +84,8 @@ class m3():
 		self.stecker = {}
 		count = 0
 		steckcheck = []
+		
+		words = words.lower()
 
 		if words == "":
 			self.stecker = {}

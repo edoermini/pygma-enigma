@@ -11,7 +11,7 @@ Example: <br />
 * **set_key(key_of_encryption):** <br />
 Initializes the starting position of the "rotors" and reflector. <br />
 Example: <br />
-> set_key("dcba")< <br />
+> set_key("dcba") <br /><br />
 Initializes the start position of the rotors to DCB and the position of reflector to A. <br />
 <br />
 * **set_stecker("letter1letter2, letter3letter4, ..."):** <br />

@@ -24,8 +24,8 @@ Example: <br />
 * **enc_dec("words"):** <br />
  Encrypt or decrypt given words <br />
   Example: <br />
-  > e.enc_dec("hello!")
-  > 'txxxc!'
+  > >>> e.enc_dec("hello!") <br />
+  > >>> 'txxxc!' <br />
   
   Encrypts word "hello!" in "txxxc!" with the configuration of the examples.
   

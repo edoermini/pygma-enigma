@@ -78,7 +78,10 @@ class m3():
 					self.reflector_left = self.reflector_left[index:] + self.reflector_left[:index]
 					self.reflector_right = self.reflector_right[index:] + self.reflector_right[:index]
 			except ValueError:
-				raise ValueError("Lettera %s non presente nei rotori" % (k))
+				if k.isdigit() == True:
+					raise TypeError("Numeri non supportati")
+				else:
+					raise ValueError("Lettera %s non presente nei rotori" % (k))
 
 	def set_stecker(self, words):
 		self.stecker = {}
@@ -97,7 +100,7 @@ class m3():
 		for i in steck:
 			for j in i:
 				if j.isdigit() == True:
-					raise ValueError("Numeri non supportati")
+					raise TypeError("Numeri non supportati")
 
 		for i in steck:
 			steckcheck.append(i)

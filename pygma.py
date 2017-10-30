@@ -23,7 +23,7 @@ class m3():
 	def set_key(self, key):
 
 		self.__init__()
-		
+
 		key = key.lower()
 		
 		if (len(key) > 4 or len(key) < 4):
@@ -87,7 +87,7 @@ class m3():
 		self.stecker = {}
 		count = 0
 		steckcheck = []
-		
+
 		words = words.lower()
 
 		if words == "":
@@ -96,6 +96,10 @@ class m3():
 
 		steck = words.replace(" ", "")
 		steck = steck.split(",")
+
+		for i in steck:
+			if len(i) > 2 or len(i) < 2:
+				raise ValueError("Sono richiesti gruppi di due lettere separati da virgola")
 
 		for i in steck:
 			for j in i:

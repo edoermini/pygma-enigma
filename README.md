@@ -28,6 +28,10 @@ Example: <br />
   > 'txxxc!' <br />
   
   Encrypts word "hello!" in "txxxc!" with the configuration of the examples.
+  > e.enc_dec("txxxc!") <br />
+  > 'hello!'
+  
+  Decrypts word "txxxc!" in "hello!" with the configuration of the examples.
   
  
 

@@ -27,7 +27,7 @@ class m3():
 		key = key.lower()
 		
 		if (len(key) > 4 or len(key) < 4):
-			raise ValueError("La chiave di cifratura deve essere composta da 4 lettere\n")
+			raise ValueError("The encryption key must be 4 letters\n")
 
 		self.indexKey = []
 		for i in key:
@@ -79,9 +79,9 @@ class m3():
 					self.reflector_right = self.reflector_right[index:] + self.reflector_right[:index]
 			except ValueError:
 				if k.isdigit() == True:
-					raise TypeError("Numeri non supportati")
+					raise TypeError("Unsupported numbers")
 				else:
-					raise ValueError("Lettera %s non presente nei rotori" % (k))
+					raise ValueError("The letter %s is not present in the rotors" % (k))
 
 	def set_stecker(self, words):
 		self.stecker = {}
@@ -99,12 +99,12 @@ class m3():
 
 		for i in steck:
 			if len(i) > 2 or len(i) < 2:
-				raise ValueError("Sono richiesti gruppi di due lettere separati da virgola")
+				raise ValueError("Comma-separated groups of two letters are required")
 
 		for i in steck:
 			for j in i:
 				if j.isdigit() == True:
-					raise TypeError("Numeri non supportati")
+					raise TypeError("Unsupported numbers")
 
 		for i in steck:
 			steckcheck.append(i)
@@ -114,7 +114,7 @@ class m3():
 			
 			for j in steckcheck:
 				if i[0] == j[0] or i[1] == j[1] or i[0] == j[1] or i[1] == j[0]:
-					raise ValueError("Stesso elemento trovato multiple volte")
+					raise ValueError("Same element found several times")
 					return None
 
 			count += 1
@@ -124,7 +124,7 @@ class m3():
 				steckcheck.append(i)
 
 		if len(steck) > 10:
-			raise ValueError("Impossibile fare più di 10 collegamenti")
+			raise ValueError("Can not do more than 10 links")
 
 		for i in steck:
 			self.stecker.update({i[0]:i[1], i[1]:i[0]})

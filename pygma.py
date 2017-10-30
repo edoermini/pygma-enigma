@@ -2,7 +2,6 @@
 
 class m3():
 	def __init__(self):
-		self.stecker = {}
 		self.alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "x", "z"]
 		
 		self.rotor_1 = ["a:x", "b:z", "c:u", "d:v", "e:s", "f:t", "g:q", "h:r", "i:o", "l:p", "m:l", "n:m", "o:n", "p:h", "q:i", "r:f", "s:g", "t:d", "u:e", "v:b", "x:c", "z:a"]
@@ -80,6 +79,7 @@ class m3():
 				raise ValueError("Lettera %s non presente nei rotori" % (k))
 
 	def set_stecker(self, words):
+		self.stecker = {}
 		count = 0
 		steckcheck = []
 
@@ -89,35 +89,46 @@ class m3():
 
 		steck = words.replace(" ", "")
 		steck = steck.split(",")
-		steckcheck = steck
 
 		for i in steck:
+			for j in i:
+				if j.isdigit() == True:
+					raise ValueError("Numeri non supportati")
+
+		for i in steck:
+			steckcheck.append(i)
+
+		for i in steckcheck:
 			del steckcheck[count]
 			
-			for j in steck:
+			for j in steckcheck:
 				if i[0] == j[0] or i[1] == j[1] or i[0] == j[1] or i[1] == j[0]:
 					raise ValueError("Stesso elemento trovato multiple volte")
 					return None
 
 			count += 1
-			steckcheck = steck
-
-		for i in steck:
-			self.stecker.update({i[0]:i[1], i[1]:i[0]})
 
 		if len(steck) > 10:
 			raise ValueError("Impossibile fare più di 10 collegamenti")
 
+		for i in steck:
+			self.stecker.update({i[0]:i[1], i[1]:i[0]})
 
 	def stecker_check(self, word):
 		changed = ""
 		
 		for i in word:
 			try:
-				ch = self.stecker[i]
-				changed += ch
+				ch = self.stecker[i.lower()]
+				if i == i.lower():
+					changed += ch
+				elif i == i.upper():
+					changed += ch.upper()
 			except:
-				changed += i
+				if i == i.lower():
+					changed += i
+				elif i == i.upper():
+					changed += i.upper()
 
 		return changed
 
@@ -138,11 +149,7 @@ class m3():
 		for i in word:
 			rotor_1_count += 1
 
-			if i == i.upper():
-				i = self.stecker_check(i.lower())
-				i = i.upper()
-			elif i == i.lower():
-				i = self.stecker_check(i)
+			i = self.stecker_check(i)
 				
 			try:
 				index = self.alphabet.index(i.lower())
@@ -174,10 +181,7 @@ class m3():
 					Word += self.alphabet[index].lower()
 			
 			except ValueError:
-				if i == i.upper():
-					Word += i.upper()
-				elif i == i.lower():
-					Word += i.lower()
+				Word += i
 			
 			rotor_1_left_mv = rotor_1_left_mv[1:] + rotor_1_left_mv[:1]
 			rotor_1_right_mv = rotor_1_right_mv[1:] + rotor_1_right_mv[:1]

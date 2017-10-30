@@ -2,21 +2,21 @@
 
 class m3():
 	def __init__(self):
-		self.alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "x", "z"]
+		self.alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 		
-		self.rotor_1 = ["a:x", "b:z", "c:u", "d:v", "e:s", "f:t", "g:q", "h:r", "i:o", "l:p", "m:l", "n:m", "o:n", "p:h", "q:i", "r:f", "s:g", "t:d", "u:e", "v:b", "x:c", "z:a"]
+		self.rotor_1 = ["a:h", "b:s", "c:u", "d:t", "e:v", "f:y", "g:r", "h:m", "i:a", "j:q", "k:o", "l:z", "m:x", "n:l", "o:c", "p:i", "q:f", "r:n", "s:b", "t:j", "u:d", "v:g", "w:p", "x:e", "y:k", "z:w"]
 		self.rotor_1_left = []
 		self.rotor_1_right = []
 		
-		self.rotor_2 = ["a:o", "b:t", "c:u", "d:l", "e:n", "f:z", "g:q", "h:r", "i:x", "l:p", "m:v", "n:a", "o:s", "p:g", "q:i", "r:c", "s:h", "t:d", "u:b", "v:e", "x:f", "z:m"]
+		self.rotor_2 = ["a:w", "b:q", "c:v", "d:m", "e:u", "f:z", "g:r", "h:t", "i:s", "j:i", "k:x", "l:y", "m:o", "n:a", "o:d", "p:n", "q:p", "r:j", "s:k", "t:l", "u:c", "v:e", "w:f", "x:g", "y:b", "z:h"]
 		self.rotor_2_left = []
 		self.rotor_2_right = []
 
-		self.rotor_3 = ["a:u", "b:v", "c:x", "d:z", "e:l", "f:r", "g:q", "h:t", "i:p", "l:o", "m:s", "n:m", "o:g", "p:f", "q:d", "r:h", "s:n", "t:i", "u:a", "v:c", "x:b", "z:e"]
+		self.rotor_3 = ["a:v", "b:r", "c:w", "d:x", "e:z", "f:i", "g:q", "h:j", "i:y", "j:t", "k:m", "l:u", "m:s", "n:p", "o:k", "p:l", "q:n", "r:o", "s:d", "t:a", "u:h", "v:b", "w:f", "x:c", "y:e", "z:g"]
 		self.rotor_3_left = []
 		self.rotor_3_right = []
 
-		self.reflector = ["a:z", "b:x", "c:v", "d:u", "e:t", "f:s", "g:r", "h:q", "i:p", "l:o", "m:n", "n:m", "o:l", "p:i", "q:h", "r:g", "s:f", "t:e", "u:d", "v:c", "x:b", "z:a"]
+		self.reflector = ["a:z", "b:y", "c:x", "d:w", "e:v", "f:u", "g:t", "h:s", "i:r", "j:q", "k:p", "l:o", "m:n", "n:m", "o:l", "p:k", "q:j", "r:i", "s:h", "t:g", "u:f", "v:e", "w:d", "x:c", "y:b", "z:a"]
 		self.reflector_left = []
 		self.reflector_right = []
 

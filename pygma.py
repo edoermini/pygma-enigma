@@ -77,6 +77,7 @@ class m3():
 					index = self.reflector_left.index(k)
 					self.reflector_left = self.reflector_left[index:] + self.reflector_left[:index]
 					self.reflector_right = self.reflector_right[index:] + self.reflector_right[:index]
+			
 			except ValueError:
 				if k.isdigit() == True:
 					raise TypeError("Unsupported numbers")
@@ -189,37 +190,37 @@ class m3():
 
 				word = rotor_1_right_mv[index]
 				index = rotor_1_left_mv.index(word)
-
+				
 				if i == i.upper():
 					Word += self.alphabet[index].upper()
 				elif i == i.lower():
 					Word += self.alphabet[index].lower()
+
+				rotor_1_left_mv = rotor_1_left_mv[1:] + rotor_1_left_mv[:1]
+				rotor_1_right_mv = rotor_1_right_mv[1:] + rotor_1_right_mv[:1]
+
+				if rotor_1_count == 26:
+					rotor_2_left_mv = rotor_2_left_mv[1:] + rotor_2_left_mv[:1]
+					rotor_2_right_mv = rotor_2_right_mv[1:] + rotor_2_right_mv[:1]
+					
+					rotor_2_count += 1
+					rotor_1_count = 0
+
+				elif rotor_2_count == 26:
+					rotor_3_left_mv = rotor_3_left_mv[1:] + rotor_3_left_mv[:1]
+					rotor_3_right_mv = rotor_3_right_mv[1:] + rotor_3_right_mv[:1]
+
+					rotor_3_count +=1
+					rotor_2_count = 0
+					rotor_1_count = 0
+
+				elif rotor_3_count == 26:
+					rotor_3_count = 0
+					rotor_2_count = 0
+					rotor_1_count = 0
 			
 			except ValueError:
 				Word += i
-			
-			rotor_1_left_mv = rotor_1_left_mv[1:] + rotor_1_left_mv[:1]
-			rotor_1_right_mv = rotor_1_right_mv[1:] + rotor_1_right_mv[:1]
-
-			if rotor_1_count == 26:
-				rotor_2_left_mv = rotor_2_left_mv[1:] + rotor_2_left_mv[:1]
-				rotor_2_right_mv = rotor_2_right_mv[1:] + rotor_2_right_mv[:1]
-				
-				rotor_2_count += 1
-				rotor_1_count = 0
-
-			elif rotor_2_count == 26:
-				rotor_3_left_mv = rotor_3_left_mv[1:] + rotor_3_left_mv[:1]
-				rotor_3_right_mv = rotor_3_right_mv[1:] + rotor_3_right_mv[:1]
-
-				rotor_3_count +=1
-				rotor_2_count = 0
-				rotor_1_count = 0
-
-			elif rotor_3_count == 26:
-				rotor_3_count = 0
-				rotor_2_count = 0
-				rotor_1_count = 0
 
 		Word = self.stecker_check(Word)		
 		return Word

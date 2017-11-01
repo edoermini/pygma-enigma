@@ -6,7 +6,7 @@ Encryption software that emulates the german enigma machine.
 ### Setup your machine
 * **Rotors and Reflector** <br />
   > from pygma.rotors import Rotor <br />
-  > from pygma.Reflector import Reflector <br />
+  > from pygma.rotors import Reflector <br />
   >  <br />
   > r1 = Rotor("asdfghjklzxcvbnmqwertyuiop", 9) <br />
   > r2 = Rotor("qawsedrftgyhujikolpzxcvbnm", 24) <br />
@@ -14,30 +14,34 @@ Encryption software that emulates the german enigma machine.
   > <br />
   > reflector = Reflector("adsfgjhklzcxvbmnqewrtuyiop", 12)
   
-  *Rotor* funcion sets the rotor
-  
- 
-  Initializes the start position of the rotors to DCB and the position of reflector to A.
-
+  The **Rotor** function sets the rotor and it requires 2 arguments, the first the alphabet that will correspond to the rotor, and the second the rotor starting point. <br />
+  <br />
+  The **Reflector** function sets the reflector and similarly to the Rotor function it requires 2 arguments, the first the alphabet that will correspond to the reflector, and the second the reflector starting point. <br />
+<br />
 * **Plug Board** <br />
- Simulates the electric exchange of letters in stecker side of the machine, with up to 10 exchanges. <br />
-  Example: <br />
-  > e.set_stecker("ac") <br />
- 
-  Sets the exchange of the two letters "a" and "c", so when you give letter "a" to program it will understand letter "c" and vice             versa.
+  > from pygma.stecker import Stecker <br />
+  > <br />
+  > stecker = Stecker("as,de,fr") <br />
+  
+  The **Stecker** function sets the exchange between two letters it requires 1 arguments that corresponds to the groups of letters to be exchanged. <br />
+  *Example:* <br />
+  Stecker("as,de,fr") means that letter a must be exchanged with s and vice versa, as well as for d and e letters, and for f and r letters. <br />
 
 ### Start Encrypting and Decrypting
-* **Set Encrypter and Decrypter**
- Encrypt or decrypt given words <br />
-  Example: <br />
-  > e.enc_dec("hello!") <br />
-  > 'txxxc!' <br />
+* **Set Encrypter and Decrypter** <br />
+  > from pygma.machine import Machine <br />
+  > <br />
+  > e = Machine(r1, r2, r3, reflector, stecker)
   
-  Encrypts word "hello!" in "txxxc!" with the configuration of the examples.
-  > e.enc_dec("txxxc!") <br />
+  The **Machine** function sets the machine with the declared elements. <br />
+  
+* **Encrypt and decrypt** <br />
+  > e.enc_dec("hello!") <br />
+  > 'krcpy!' <br />
+  > e.enc_dec("krcpy!") <br />
   > 'hello!' <br />
   
-  Decrypts word "txxxc!" in "hello!" with the configuration of the examples.
+  The **enc_dec** function encrypts word "hello!" in "krcpy!" and decrypts word "krcpy!" in "hello!" with the configuration previously set.
   
  
 

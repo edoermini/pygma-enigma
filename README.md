@@ -4,18 +4,20 @@ Encryption software that emulates the german enigma machine.
 ## User guide
 
 ### Setup your machine
-* **Rotors and Reflector** <br />
+* **Rotors** <br />
   > from pygma.rotors import Rotor <br />
-  > from pygma.rotors import Reflector <br />
   >  <br />
   > r1 = Rotor("asdfghjklzxcvbnmqwertyuiop", 9) <br />
   > r2 = Rotor("qawsedrftgyhujikolpzxcvbnm", 24) <br />
   > r3 = Rotor("zxcvbnmasdfghjklqwertyuiop", 2) <br />
-  > <br />
-  > reflector = Reflector("adsfgjhklzcxvbmnqewrtuyiop", 12)
   
   The **Rotor** function sets the rotor and it requires 2 arguments, the first the alphabet that will correspond to the rotor, and the second the rotor starting point. <br />
-  <br />
+  
+* **Reflector** <br />
+  > from pygma.reflector import Reflector <br />
+  > <br />
+  > reflector = Reflector("adsfgjhklzcxvbmnqewrtuyiop", 12) <br />
+  
   The **Reflector** function sets the reflector and similarly to the Rotor function it requires 2 arguments, the first the alphabet that will correspond to the reflector, and the second the reflector starting point. <br />
 
 * **Plug Board** <br />

@@ -17,7 +17,7 @@ Encryption software that emulates the german enigma machine.
   The **Rotor** function sets the rotor and it requires 2 arguments, the first the alphabet that will correspond to the rotor, and the second the rotor starting point. <br />
   <br />
   The **Reflector** function sets the reflector and similarly to the Rotor function it requires 2 arguments, the first the alphabet that will correspond to the reflector, and the second the reflector starting point. <br />
-<br />
+
 * **Plug Board** <br />
   > from pygma.stecker import Stecker <br />
   > <br />

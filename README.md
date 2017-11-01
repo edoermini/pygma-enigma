@@ -24,6 +24,7 @@ Encryption software that emulates the german enigma machine.
   > stecker = Stecker("as,de,fr") <br />
   
   The **Stecker** function sets the exchange between two letters it requires 1 arguments that corresponds to the groups of letters to be exchanged. <br />
+  <br />
   *Example:* <br />
   Stecker("as,de,fr") means that letter a must be exchanged with s and vice versa, as well as for d and e letters, and for f and r letters. <br />
 

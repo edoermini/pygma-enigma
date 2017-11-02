@@ -21,9 +21,9 @@ Encryption software that emulates the german enigma machine.
   The **Reflector** function sets the reflector and similarly to the Rotor function it requires 2 arguments, the first the alphabet that will correspond to the reflector, and the second the reflector starting point. <br />
 
 * **Plug Board** <br />
-  > from pygma.stecker import Stecker <br />
+  > from pygma.plugboard import PlugBoard <br />
   > <br />
-  > stecker = Stecker("as,de,fr") <br />
+  > pb = PlugBoard("as,de,fr") <br />
   
   The **Stecker** function sets the exchange between two letters it requires 1 arguments that corresponds to the groups of letters to be exchanged. <br />
   <br />
@@ -34,7 +34,7 @@ Encryption software that emulates the german enigma machine.
 * **Set Encrypter and Decrypter** <br />
   > from pygma.machine import Machine <br />
   > <br />
-  > e = Machine([r1, r2, r3], reflector, stecker)
+  > e = Machine([r1, r2, r3], reflector, pb)
   
   The **Machine** function sets the machine with the declared elements. <br />
   

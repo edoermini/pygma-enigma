@@ -11,6 +11,11 @@ def Reflector(letters, position):
 	if len(letters) > 26 or len(letters) < 26:
 		raise ValueError("26 letters are required")
 
+	for index,letter in enumerate(letters):
+		for letter_2 in letters[0:index] + letters[index+1:]:
+			if letter == letter_2:
+				raise ValueError("Same element found several times")
+
 	for letter in letters:
 		if letter.isalpha() == True:
 			reflector.append(letter + letter_link[letter])

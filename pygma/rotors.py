@@ -11,6 +11,11 @@ def Rotor(letters, position):
 		raise ValueError("26 letters are required")
 
 	for index,letter in enumerate(letters):
+		for letter2 in letters[0:index] + letters[index+1:]:
+			if letter == letter2:
+				raise ValueError("Same element found several times")
+
+	for index,letter in enumerate(letters):
 		if letter.isalpha() == True:
 				rotor.append(alphabet[index] + letter)
 		else:

@@ -1,17 +1,17 @@
 class Machine():
 	
-	def __init__(self, rotor_1, rotor_2, rotor_3, reflector, stecker):
+	def __init__(self, rotor, reflector, stecker):
 		self.alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
-		self.rotor_1 = rotor_1
+		self.rotor_1 = rotor[0]
 		self.rotor_1_left = []
 		self.rotor_1_right = []
 
-		self.rotor_2 = rotor_2
+		self.rotor_2 = rotor[1]
 		self.rotor_2_left = []
 		self.rotor_2_right = []
 
-		self.rotor_3 = rotor_3
+		self.rotor_3 = rotor[2]
 		self.rotor_3_left = []
 		self.rotor_3_right = []
 

@@ -34,7 +34,7 @@ Encryption software that emulates the german enigma machine.
 * **Set Encrypter and Decrypter** <br />
   > from pygma.machine import Machine <br />
   > <br />
-  > e = Machine(r1, r2, r3, reflector, stecker)
+  > e = Machine([r1, r2, r3], reflector, stecker)
   
   The **Machine** function sets the machine with the declared elements. <br />
   
@@ -44,7 +44,7 @@ Encryption software that emulates the german enigma machine.
   > e.enc_dec("krcpy!") <br />
   > 'hello!' <br />
   
-  The **enc_dec** function encrypts word "hello!" in "krcpy!" and decrypts word "krcpy!" in "hello!" with the configuration previously set.
+  The **enc_dec** function encrypts and decrypts given words with the configuration previously set.
   
  
 

@@ -1,4 +1,4 @@
-def Stecker(words):
+def PlugBoard(words):
 	stecker = {}
 	count = 0
 	steckcheck = []

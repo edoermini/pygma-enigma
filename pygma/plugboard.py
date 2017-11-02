@@ -6,7 +6,7 @@ def PlugBoard(words):
 	words = words.lower()
 
 	if words == "":
-		pb = {}
+		return pb
 
 	pb_list = words.replace(" ", "")
 	pb_list = pb_list.split(",")

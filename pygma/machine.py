@@ -1,6 +1,6 @@
 from .rotor import Rotor
 from .reflector import Reflector
-from .plugboard import Plugboard
+from .plugboard import PlugBoard
 
 class Machine():
 	

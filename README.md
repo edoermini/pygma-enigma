@@ -5,7 +5,7 @@ Encryption software that emulates the german enigma machine.
 
 ### Setup your machine
 * **Rotors** <br />
-  > from pygma.rotors import Rotor <br />
+  > from pygma.rotor import Rotor <br />
   >  <br />
   > r1 = Rotor("asdfghjklzxcvbnmqwertyuiop", 9) <br />
   > r2 = Rotor("qawsedrftgyhujikolpzxcvbnm", 24) <br />
